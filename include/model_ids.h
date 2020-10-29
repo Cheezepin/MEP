@@ -342,7 +342,6 @@
 #define MODEL_HEAVE_HO                    0x59        // heave_ho_geo
 
 // group 2
-#define MODEL_BLARGG                      0x54        // blargg_geo
 #define MODEL_BULLY                       0x56        // bully_geo
 #define MODEL_BULLY_BOSS                  0x57        // bully_boss_geo
 
@@ -533,6 +532,15 @@
 #define MODEL_SEAWEED                     0xC1        // seaweed_geo
 #define MODEL_AMP                         0xC2        // amp_geo
 #define MODEL_BOBOMB_BUDDY                0xC3        // bobomb_buddy_geo
+
+#define MODEL_REX                         0xFF
+#define MODEL_GALOOMBA                    0xFE
+#define MODEL_BLOOPER                     0xFD
+#define MODEL_BLARGG                      0xFC
+#define MODEL_BUZZY_BEETLE                0xFB
+#define MODEL_NIPPER                      0xFA
+#define MODEL_CLEFT                       0xF9
+
 // find me
 // find me
 // find me

@@ -112,6 +112,13 @@ const LevelScript level_main_scripts_entry[] = {
     LOAD_MODEL_FROM_GEO(MODEL_EXPLOSION,               explosion_geo),
     LOAD_MODEL_FROM_GEO(MODEL_DIRT_ANIMATION,          dirt_animation_geo),
     LOAD_MODEL_FROM_GEO(MODEL_CARTOON_STAR,            cartoon_star_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_REX,                     rex_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_GALOOMBA,                galoomba_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_BLOOPER,                 blooper_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_BLARGG,                  blargg_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_BUZZY_BEETLE,            buzzy_beetle_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_NIPPER,                  nipper_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_CLEFT,                   cleft_geo),
     FREE_LEVEL_POOL(),
     CALL(/*arg*/ 0, /*func*/ lvl_init_from_save_file),
     LOOP_BEGIN(),
@@ -207,7 +214,6 @@ const LevelScript script_func_global_2[] = {
 };
 
 const LevelScript script_func_global_3[] = {
-    LOAD_MODEL_FROM_GEO(MODEL_BLARGG,                  blargg_geo),
     LOAD_MODEL_FROM_GEO(MODEL_BULLY,                   bully_geo),
     LOAD_MODEL_FROM_GEO(MODEL_BULLY_BOSS,              bully_boss_geo),
     RETURN(),

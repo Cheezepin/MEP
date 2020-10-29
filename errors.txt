@@ -1,0 +1,5 @@
+data/behavior_data.c:6194:15: error: expected '}' before ';' token
+     ANIMATE(0);
+               ^
+Makefile:585: recipe for target 'build/us/data/behavior_data.o' failed
+make: *** [build/us/data/behavior_data.o] Error 1

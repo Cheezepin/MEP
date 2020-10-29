@@ -15,6 +15,7 @@
 
 #include "actors/common0.h"
 #include "actors/common1.h"
+#include "actors/group0.h"
 #include "actors/group1.h"
 #include "actors/group2.h"
 #include "actors/group3.h"
@@ -3733,7 +3734,7 @@ const BehaviorScript bhvBobomb[] = {
     OR_INT(oFlags, (OBJ_FLAG_PERSISTENT_RESPAWN | OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_HOLDABLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
     LOAD_ANIMATIONS(oAnimations, bobomb_seg8_anims_0802396C),
     DROP_TO_FLOOR(),
-    ANIMATE(0),
+    ANIMATE(0), 
     SET_INT(oIntangibleTimer, 0),
     SET_HOME(),
     CALL_NATIVE(bhv_bobomb_init),
@@ -6106,4 +6107,95 @@ const BehaviorScript bhvIntroScene[] = {
     END_LOOP(),
 };
 
+const BehaviorScript bhvRex[] = {
+    BEGIN(OBJ_LIST_PUSHABLE),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    DROP_TO_FLOOR(),
+    LOAD_ANIMATIONS(oAnimations, rex_anims),
+    SET_HOME(),
+    SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 40, /*Gravity*/ -400, /*Bounciness*/ -50, /*Drag strength*/ 1000, /*Friction*/ 1000, /*Buoyancy*/ 0, /*Unused*/ 0, 0),
+    CALL_NATIVE(bhv_rex_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_rex_update),
+    END_LOOP(),
+};
 
+const BehaviorScript bhvGaloomba[] = {
+    BEGIN(OBJ_LIST_PUSHABLE),
+    OR_INT(oFlags, (OBJ_FLAG_HOLDABLE | OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    DROP_TO_FLOOR(),
+    LOAD_ANIMATIONS(oAnimations, galoomba_anims),
+    SET_HOME(),
+    SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 40, /*Gravity*/ -400, /*Bounciness*/ -50, /*Drag strength*/ 1000, /*Friction*/ 1000, /*Buoyancy*/ 0, /*Unused*/ 0, 0),
+    CALL_NATIVE(bhv_galoomba_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_galoomba_update),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvBlooper[] = {
+    BEGIN(OBJ_LIST_PUSHABLE),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    SET_HOME(),
+    LOAD_ANIMATIONS(oAnimations, blooper_anims),
+    ANIMATE(0),
+    CALL_NATIVE(bhv_blooper_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_blooper_update),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvBlargg[] = {
+    BEGIN(OBJ_LIST_PUSHABLE),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    SET_HOME(),
+    LOAD_ANIMATIONS(oAnimations, blargg_anims),
+    ANIMATE(0),
+    CALL_NATIVE(bhv_blargg_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_blargg_update),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvBuzzyBeetle[] = {
+    BEGIN(OBJ_LIST_DESTRUCTIVE),
+    SET_INT(oIntangibleTimer, 0),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    DROP_TO_FLOOR(),
+    LOAD_ANIMATIONS(oAnimations, buzzy_beetle_anims),
+    ANIMATE(1),
+    SET_HOME(),
+    SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 40, /*Gravity*/ -400, /*Bounciness*/ -50, /*Drag strength*/ 1000, /*Friction*/ 1000, /*Buoyancy*/ 0, /*Unused*/ 0, 0),
+    CALL_NATIVE(bhv_buzzy_beetle_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_buzzy_beetle_update),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvNipper[] = {
+    BEGIN(OBJ_LIST_PUSHABLE),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 80, /*Gravity*/ -400, /*Bounciness*/ -50, /*Drag strength*/ 0, /*Friction*/ 0, /*Buoyancy*/ 200, /*Unused*/ 0, 0),SET_HOME(),
+    DROP_TO_FLOOR(),
+    SCALE(/*Unused*/ 0, /*Field*/ 25),
+    LOAD_ANIMATIONS(oAnimations, nipper_anims),
+    ANIMATE(0),
+    CALL_NATIVE(bhv_nipper_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_nipper_update),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvCleft[] = {
+    BEGIN(OBJ_LIST_PUSHABLE),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    DROP_TO_FLOOR(),
+    LOAD_ANIMATIONS(oAnimations, cleft_anims),
+    ANIMATE(0),
+    SET_HOME(),
+    SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 40, /*Gravity*/ -400, /*Bounciness*/ -50, /*Drag strength*/ 1000, /*Friction*/ 1000, /*Buoyancy*/ 0, /*Unused*/ 0, 0),
+    CALL_NATIVE(bhv_cleft_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_cleft_update),
+    END_LOOP(),
+};

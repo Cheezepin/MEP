@@ -552,6 +552,21 @@ void bhv_dust_smoke_loop(void);
 void bhv_yoshi_loop(void);
 void bhv_volcano_trap_loop(void);
 
+void bhv_rex_init(void);
+void bhv_rex_update(void);
+void bhv_galoomba_init(void);
+void bhv_galoomba_update(void);
+void bhv_blooper_init(void);
+void bhv_blooper_update(void);
+void bhv_blargg_init(void);
+void bhv_blargg_update(void);
+void bhv_buzzy_beetle_init(void);
+void bhv_buzzy_beetle_update(void);
+void bhv_nipper_init(void);
+void bhv_nipper_update(void);
+void bhv_cleft_init(void);
+void bhv_cleft_update(void);
+
 Gfx *geo_move_mario_part_from_parent(s32 run, UNUSED struct GraphNode *node, Mat4 mtx);
 
 // Bowser

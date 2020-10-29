@@ -16,3 +16,11 @@
 #include "water_splash/geo.inc.c"
 #include "sparkle_animation/geo.inc.c"
 #include "mario/geo.inc.c"
+
+#include "rex/geo.inc.c"
+#include "galoomba/geo.inc.c"
+#include "blooper/geo.inc.c"
+#include "blargg/geo.inc.c"
+#include "buzzy_beetle/geo.inc.c"
+#include "nipper/geo.inc.c"
+#include "cleft/geo.inc.c"
