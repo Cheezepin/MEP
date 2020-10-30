@@ -40,6 +40,8 @@ void bhv_nipper_update(void) {
 
             switch (sNipperAttackHandlers[attackType - 1]) {
                 case ATTACK_HANDLER_NOP:
+                    o->oInteractionSubtype = 0;
+                    take_damage_and_knock_back(gMarioState, o);
                     break;
 
                 case ATTACK_HANDLER_KNOCKBACK:
@@ -84,11 +86,12 @@ void bhv_nipper_update(void) {
                         cur_obj_play_sound_2(SOUND_OBJ2_SCUTTLEBUG_ALERT);
                     }
                 } else if (o->oScuttlebugUnkF8 == 1) {
-                    if(o->oMoveFlags & OBJ_MOVE_MASK_ON_GROUND && gMarioState->action == ACT_JUMP || gMarioState->action == ACT_DOUBLE_JUMP || gMarioState->action == ACT_TRIPLE_JUMP || gMarioState->action == ACT_LONG_JUMP) {
+                    if(o->oMoveFlags & OBJ_MOVE_MASK_ON_GROUND && (gMarioState->action == ACT_JUMP || gMarioState->action == ACT_DOUBLE_JUMP || gMarioState->action == ACT_TRIPLE_JUMP || gMarioState->action == ACT_LONG_JUMP || gMarioState->action == ACT_SIDE_FLIP || gMarioState->action == ACT_BACKFLIP) && gMarioObject->header.gfx.animInfo.animFrame < 2) {
                         o->oVelY = gMarioState->vel[1];
                         o->oSkeeterUnk1AC = 2;
                         o->oForwardVel = 0;
                         cur_obj_init_animation(1);
+                        cur_obj_play_sound_2(SOUND_OBJ2_SCUTTLEBUG_ALERT);
                     }
                     else {
                         if(o->oMoveFlags & OBJ_MOVE_MASK_ON_GROUND) {

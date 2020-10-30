@@ -1,0 +1,8 @@
+--- data/behavior_data.c
++++ data/behavior_data.c
+@@ -6136,5 +6167,3 @@ const BehaviorScript bhvIntroScene[] = {
+         CALL_NATIVE(bhv_intro_scene_loop),
+     END_LOOP(),
+ };
+-
+-

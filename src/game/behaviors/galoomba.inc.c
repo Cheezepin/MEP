@@ -140,7 +140,7 @@ static void galoomba_act_flipped_init(void) {
 static void galoomba_act_flipped(void) {
                     //spawn_object(o, MODEL_GALOOMBA, bhvGaloombaBox);
                     //mark_obj_for_deletion(o);
-                    if(o->header.gfx.unk38.animFrame >= 4) {
+                    if(o->header.gfx.animInfo.animFrame >= 4) {
                         cur_obj_init_animation(1);
                     }
 }
@@ -233,6 +233,7 @@ if(o->oAction < GALOOMBA_ACT_FLIPPED) {
 
                 case ATTACK_HANDLER_KNOCKBACK:
                     //obj_set_knockback_action(attackType);
+                    o->oAction = GALOOMBA_ACT_FLIPPED_INIT;
                     break;
 
                 case ATTACK_HANDLER_SQUISHED:

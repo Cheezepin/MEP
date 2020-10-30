@@ -48,6 +48,7 @@ static const LevelScript script_func_local_2[] = {
     OBJECT(/*model*/ MODEL_WF_ROTATING_PLATFORM,        /*pos*/  3200, 3328, -1791, /*angle*/ 0,   0, 0, /*behParam*/ 0x08000000, /*beh*/ bhvRotatingPlatform),
     OBJECT(/*model*/ MODEL_WF_ROTATING_PLATFORM,        /*pos*/  2688, 3584,  -895, /*angle*/ 0,   0, 0, /*behParam*/ 0x08000000, /*beh*/ bhvRotatingPlatform),
     OBJECT(/*model*/ MODEL_NONE,                        /*pos*/ -2495, 1331,  -256, /*angle*/ 0,   0, 0, /*behParam*/ 0x003D0000, /*beh*/ bhvPoleGrabbing),
+    OBJECT(/*model*/ MODEL_BUZZY_BEETLE, /*pos*/  4705, 256, 881, /*angle*/ 0, 0, 0, /*behParam*/ 0x00000000, /*beh*/ bhvBuzzyBeetle),
     RETURN(),
 };
 

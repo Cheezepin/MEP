@@ -70,11 +70,9 @@ static void buzzy_beetle_begin_charge(void) {
     //o->oVelY = 50.0f / 3.0f;
 }
 
-f32 animSpeed;
-
 static void buzzy_beetle_act_walk(void) {
     o->oAnimState = 0;
-    cur_obj_init_animation_with_accel_and_sound(1, animSpeed);
+    cur_obj_init_animation_with_accel_and_sound(1, 0.5f + o->oForwardVel / 3.0f);
     treat_far_home_as_mario(1000.0f);
 
     o->oDistanceToMario = lateral_dist_between_objects(o, gMarioObject);
@@ -83,7 +81,7 @@ static void buzzy_beetle_act_walk(void) {
     obj_forward_vel_approach(o->oGoombaRelativeSpeed, 0.4f);
 
     // If walking fast enough, play footstep sounds
-    if (o->oGoombaRelativeSpeed > 4.0f / 3.0f) {
+    if (o->oGoombaRelativeSpeed > 3.0f) {
         cur_obj_play_sound_at_anim_range(2, 17, SOUND_OBJ_GOOMBA_WALK);
     }
 
@@ -154,6 +152,7 @@ static void buzzy_beetle_charge(u16 timeBeforeSlowdown, u8 prevAction) {
     //o->oGoombaRelativeSpeed = 20.0f;
 
     o->oAnimState = 1;
+    cur_obj_init_animation_with_accel_and_sound(0, o->oForwardVel / 5.0f);
     if(o->oTimer <= timeBeforeSlowdown) {
         o->oForwardVel = 25.0f;
     } else {
@@ -163,16 +162,13 @@ static void buzzy_beetle_charge(u16 timeBeforeSlowdown, u8 prevAction) {
             charging = 0;
         } 
     }
-
-    animSpeed = (o->oForwardVel / 5.0f);
 }
 
 void buzzy_beetle_act_wind_up(void) {
     if(o->oTimer <= 30) {
         cur_obj_rotate_yaw_toward(o->oAngleToMario, 0x800);
-        cur_obj_init_animation_with_accel_and_sound(0, animSpeed);
+        cur_obj_init_animation_with_accel_and_sound(0, 5.0f);
         o->oForwardVel = 0.0f;
-        animSpeed = 5.0f;
     } else
         buzzy_beetle_charge(31, BUZZY_BEET_ACT_WALK);
 }
@@ -195,8 +191,9 @@ void buzzy_beetle_act_in_shell(void) {
         buzzy_beetle_charge(30, BUZZY_BEET_ACT_IN_SHELL);
     } else {
         o->oForwardVel = 0;
-        animSpeed = 1.0f;
-        cur_obj_init_animation_with_accel_and_sound(1, animSpeed);
+        //o->oGoombaBlinkTimer = 1.0f;
+        cur_obj_init_animation_with_accel_and_sound(1, 0.0f);
+            o->oAnimState = 1;
             o->oInteractType = INTERACT_GRABBABLE;
             o->oInteractionSubtype = INT_SUBTYPE_KICKABLE;
             charging = 0;
@@ -221,9 +218,14 @@ void bhv_buzzy_beetle_update(void) {
        if (o->oHeldState != HELD_FREE) {
         cur_obj_get_dropped();
         o->oAction = BUZZY_BEET_ACT_IN_SHELL;
-        charging = 1;
+        if (gMarioState->action & 0x80000000)
+            charging = 1;
+        else
+            charging = 0;
+        o->oIntangibleTimer = 5;
         o->oTimer = 0;
         o->oMoveAngleYaw = gMarioState->faceAngle[1];
+        //cur_obj_init_animation_with_accel_and_sound(1, o->oGoombaBlinkTimer);
        }
     }
     if (gMarioState->heldObj == o) {

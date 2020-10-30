@@ -42,8 +42,9 @@ static void cleft_act_rock(void) {
     o->oAnimState = 1;
     if(o->oDistanceToMario < 1000.0f) {
         cur_obj_init_animation_with_accel_and_sound(0, 5.0f);
-        if(o->oTimer > 30)
+        if(o->oTimer > 30) {
             o->oAction = CLEFT_ACT_CHARGE;
+        }
     } else {
         o->oTimer = 0;
         cur_obj_init_animation_with_accel_and_sound(2, 0.0f);
@@ -78,12 +79,12 @@ static void cleft_act_ram(void) {
 
 void cleft_act_trip(void) {
     o->oAnimState = 0;
-        if(o->oScuttlebugUnkFC == 0 && o->header.gfx.unk38.animFrame > 10)
+        if(o->oScuttlebugUnkFC == 0 && o->header.gfx.animInfo.animFrame > 10)
             o->oScuttlebugUnkFC = 1;
         else if (o->oScuttlebugUnkFC >= 1) {
             if (o->oTimer == 120)
                 cur_obj_init_animation_with_accel_and_sound(4, 1.0f);
-            else if (o->oTimer > 120 && o->header.gfx.unk38.animFrame > 7) {
+            else if (o->oTimer > 120 && o->header.gfx.animInfo.animFrame > 7) {
                 o->oAction = CLEFT_ACT_CHARGE;
                 o->oScuttlebugUnkFC = 0;
             }

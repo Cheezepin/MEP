@@ -9,7 +9,3 @@
 #include "bully/anims/data.inc.c"
 #include "bully/anims/table.inc.c"
 UNUSED static const u64 binid_0 = 0;
-
-#include "motos/model.inc.c"
-#include "motos/anims/anim.inc.c"
-UNUSED static const u64 binid_1 = 1;

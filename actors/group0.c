@@ -38,7 +38,6 @@
 #include "blargg/model.inc.c"
 #include "blargg/anims/data.inc.c"
 #include "blargg/anims/table.inc.c"
-//#include "buzzy_beetle/model.inc.c"
 #include "buzzy_beetle/model.inc.c"
 #include "buzzy_beetle/anims/data.inc.c"
 #include "buzzy_beetle/anims/table.inc.c"
