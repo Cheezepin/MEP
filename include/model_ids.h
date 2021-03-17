@@ -344,7 +344,6 @@
 // group 2
 #define MODEL_BULLY                       0x56        // bully_geo
 #define MODEL_BULLY_BOSS                  0x57        // bully_boss_geo
-#define MODEL_MOTOS                       0x58        // betah motos
 
 // group 3
 #define MODEL_WATER_BOMB                  0x54        // water_bomb_geo
@@ -541,6 +540,12 @@
 #define MODEL_BUZZY_BEETLE                0xFB
 #define MODEL_NIPPER                      0xFA
 #define MODEL_CLEFT                       0xF9
+#define MODEL_MOTOS                       0xF8
+#define MODEL_STROLLIN_STU                0xF7
+#define MODEL_LASER_RING_SPAWNER          0xF6
+#define MODEL_LASER_RING                  0xF5
+#define MODEL_SPIKE                       0xF4
+#define MODEL_SPIKE_BALL                  0xF3
 
 // find me
 // find me

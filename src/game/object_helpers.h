@@ -298,4 +298,6 @@ void cur_obj_spawn_loot_blue_coin(void);
 void cur_obj_spawn_star_at_y_offset(f32 targetX, f32 targetY, f32 targetZ, f32 offsetY);
 #endif
 
+Gfx *geo_update_laser_ring_spawner_top(s32 run, struct GraphNode *node, UNUSED void *context);
+
 #endif // OBJECT_HELPERS_H

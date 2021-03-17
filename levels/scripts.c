@@ -119,6 +119,12 @@ const LevelScript level_main_scripts_entry[] = {
     LOAD_MODEL_FROM_GEO(MODEL_BUZZY_BEETLE,            buzzy_beetle_geo),
     LOAD_MODEL_FROM_GEO(MODEL_NIPPER,                  nipper_geo),
     LOAD_MODEL_FROM_GEO(MODEL_CLEFT,                   cleft_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_MOTOS, RCP_HmsEnemymotos_basedata_A),
+    LOAD_MODEL_FROM_GEO(MODEL_STROLLIN_STU,            strollin_stu_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_LASER_RING_SPAWNER,      laser_ring_spawner_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_LASER_RING,              laser_ring_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_SPIKE,                   spike_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_SPIKE_BALL,              spike_ball_geo),
     FREE_LEVEL_POOL(),
     CALL(/*arg*/ 0, /*func*/ lvl_init_from_save_file),
     LOOP_BEGIN(),
@@ -216,7 +222,6 @@ const LevelScript script_func_global_2[] = {
 const LevelScript script_func_global_3[] = {
     LOAD_MODEL_FROM_GEO(MODEL_BULLY,                   bully_geo),
     LOAD_MODEL_FROM_GEO(MODEL_BULLY_BOSS,              bully_boss_geo),
-    LOAD_MODEL_FROM_GEO(MODEL_MOTOS, RCP_HmsEnemymotos_basedata_A),
     RETURN(),
 };
 

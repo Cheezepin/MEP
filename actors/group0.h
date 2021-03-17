@@ -372,4 +372,16 @@ extern const Gfx white_particle_small_unused_dl[];
 
 
 #include "cleft/anim_header.h"
+#include "motos/header.h"
+#include "strollin_stu/geo_header.h"
+
+
+#include "strollin_stu/anim_header.h"
+#include "laser_ring/geo_header.h"
+#include "laser_ring_spawner/geo_header.h"
+
+#include "spike/geo_header.h"
+#include "spike/anim_header.h"
+#include "spike_ball/geo_header.h"
+
 #endif

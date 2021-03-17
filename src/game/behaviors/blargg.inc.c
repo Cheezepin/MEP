@@ -41,6 +41,7 @@ void blargg_act_idle(void) {
             0x400);
     cur_obj_init_animation(0);
     cur_obj_resolve_wall_collisions();
+    //make him not go through floors LULW
     if (o->oDistanceToMario < 3000.f) {
         o->oForwardVel = 5.0f;
         if(o->oDistanceToMario < 1000.f && o->oTimer > 30) {
@@ -77,6 +78,7 @@ void bhv_blargg_update(void) {
             blargg_act_lunge();
             break;
     }
-    cur_obj_move_xz_using_fvel_and_yaw();
+    //cur_obj_move_xz_using_fvel_and_yaw();
+    cur_obj_move_standard(-50);
     o->oInteractStatus = 0;
 }

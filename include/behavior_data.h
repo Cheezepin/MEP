@@ -553,5 +553,10 @@ extern const BehaviorScript bhvBlargg[];
 extern const BehaviorScript bhvBuzzyBeetle[];
 extern const BehaviorScript bhvNipper[];
 extern const BehaviorScript bhvCleft[];
+extern const BehaviorScript bhvStrollinStu[];
+extern const BehaviorScript bhvLaserRingSpawner[];
+extern const BehaviorScript bhvLaserRing[];
+extern const BehaviorScript bhvSpike[];
+extern const BehaviorScript bhvSpikeBall[];
 
 #endif // BEHAVIOR_DATA_H

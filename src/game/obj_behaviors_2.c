@@ -938,6 +938,9 @@ static void treat_far_home_as_mario(f32 threshold) {
 #include "behaviors/buzzy_beetle.inc.c"
 #include "behaviors/nipper.inc.c"
 #include "behaviors/cleft.inc.c"
+#include "behaviors/strollin_stu.inc.c"
+#include "behaviors/laser_ring.inc.c"
+#include "behaviors/spike.inc.c"
 
 /**
  * Used by bowser, fly guy, piranha plant, and fire spitters.

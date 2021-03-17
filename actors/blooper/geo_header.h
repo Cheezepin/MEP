@@ -1,5 +1,5 @@
 extern const GeoLayout blooper_geo[];
-extern Vtx blooper_body_mesh_vtx_0[84];
+extern Vtx blooper_body_mesh_vtx_0[52];
 extern Gfx blooper_body_mesh_tri_0[];
 extern Vtx blooper_tent1L_mesh_vtx_0[3];
 extern Gfx blooper_tent1L_mesh_tri_0[];

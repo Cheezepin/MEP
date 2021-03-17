@@ -162,6 +162,7 @@ static void buzzy_beetle_charge(u16 timeBeforeSlowdown, u8 prevAction) {
             charging = 0;
         } 
     }
+    cur_obj_if_hit_wall_bounce_away();
 }
 
 void buzzy_beetle_act_wind_up(void) {

@@ -74,6 +74,9 @@ static const LevelScript script_func_local_2[] = {
     OBJECT(/*model*/ MODEL_BUZZY_BEETLE, /*pos*/  -6700, 381, 2726, /*angle*/ 0, 0, 0, /*behParam*/ 0x00000000, /*beh*/ bhvBuzzyBeetle),
     OBJECT(/*model*/ MODEL_NIPPER, /*pos*/  -5154, 543, -3973, /*angle*/ 0, 0, 0, /*behParam*/ 0x00000000, /*beh*/ bhvNipper),
     OBJECT(/*model*/ MODEL_CLEFT, /*pos*/  5346, 374, -1869, /*angle*/ 0, 0, 0, /*behParam*/ 0x00000000, /*beh*/ bhvCleft),
+    OBJECT(/*model*/ MODEL_LASER_RING_SPAWNER, /*pos*/  -1328, 310, 5264, /*angle*/ 0, 0, 0, /*behParam*/ 0x00000000, /*beh*/ bhvLaserRingSpawner),
+    OBJECT(/*model*/ MODEL_SPIKE, /*pos*/  5346, 374, -1869, /*angle*/ 0, 0, 0, /*behParam*/ 0x00000000, /*beh*/ bhvSpike),
+    //OBJECT(/*model*/ MODEL_STROLLIN_STU, /*pos*/  -515, 260, 4152, /*angle*/ 0, 0, 0, /*behParam*/ 0x00030000, /*beh*/ bhvStrollinStu),
     RETURN(),
 };
 

@@ -2891,3 +2891,16 @@ void cur_obj_spawn_star_at_y_offset(f32 targetX, f32 targetY, f32 targetZ, f32 o
     o->oPosY = objectPosY;
 }
 #endif
+
+Gfx *geo_update_laser_ring_spawner_top(s32 run, struct GraphNode *node, UNUSED void *context)
+{
+    struct GraphNodeTranslationRotation *trNode = (struct GraphNodeTranslationRotation*) (node->next);
+    struct Object* spawner = (struct Object*)gCurGraphNodeObject;
+
+    if (run == GEO_CONTEXT_RENDER)
+    {
+        trNode->translation[1] = (s16)spawner->oSpawnerTopOffset;
+    }
+
+    return NULL;
+}

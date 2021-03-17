@@ -5,7 +5,7 @@ const GeoLayout blooper_geo[] = {
 	GEO_OPEN_NODE(),
 		GEO_ANIMATED_PART(LAYER_OPAQUE, 0, 77, 0, NULL),
 		GEO_OPEN_NODE(),
-			GEO_SHADOW(1, 200, 70),
+			GEO_SHADOW(1, 200, 175),
 			GEO_CULLING_RADIUS(1064),
 			GEO_ANIMATED_PART(LAYER_OPAQUE, 0, -6, 0, blooper_body_mesh),
 			GEO_OPEN_NODE(),

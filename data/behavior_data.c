@@ -6180,6 +6180,7 @@ const BehaviorScript bhvBlargg[] = {
     BEGIN(OBJ_LIST_PUSHABLE),
     OR_INT(oFlags, (OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
     SET_HOME(),
+    SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 40, /*Gravity*/ -400, /*Bounciness*/ -50, /*Drag strength*/ 1000, /*Friction*/ 1000, /*Buoyancy*/ 0, /*Unused*/ 0, 0),
     LOAD_ANIMATIONS(oAnimations, blargg_anims),
     ANIMATE(0),
     CALL_NATIVE(bhv_blargg_init),
@@ -6230,3 +6231,60 @@ const BehaviorScript bhvCleft[] = {
         CALL_NATIVE(bhv_cleft_update),
     END_LOOP(),
 };
+
+const BehaviorScript bhvStrollinStu[] = {
+    BEGIN(OBJ_LIST_PUSHABLE),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    DROP_TO_FLOOR(),
+    LOAD_ANIMATIONS(oAnimations, strollin_stu_anims),
+    SET_HOME(),
+    SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 40, /*Gravity*/ -400, /*Bounciness*/ -50, /*Drag strength*/ 1000, /*Friction*/ 1000, /*Buoyancy*/ 0, /*Unused*/ 0, 0),
+    CALL_NATIVE(bhv_strollin_stu_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_strollin_stu_update),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvLaserRingSpawner[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    SET_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    SCALE(0, 200),
+    CALL_NATIVE(bhv_laser_ring_spawner_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_laser_ring_spawner_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvLaserRing[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    SET_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    SET_INTERACT_TYPE(INTERACT_SHOCK),
+    SET_INT(oDamageOrCoinValue, 2),
+    CALL_NATIVE(bhv_init_room),
+    CALL_NATIVE(bhv_laser_ring_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_laser_ring_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvSpike[] = {
+    BEGIN(OBJ_LIST_PUSHABLE),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    LOAD_ANIMATIONS(oAnimations, spike_anims),
+    CALL_NATIVE(bhv_spike_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_spike_update),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvSpikeBall[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    BILLBOARD(),
+    SET_HOME(),
+    CALL_NATIVE(bhv_spike_ball_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_spike_ball_loop),
+    END_LOOP(),
+};
+

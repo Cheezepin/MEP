@@ -42,7 +42,7 @@ static struct GoombaProperties sGoombaProperties[] = {
 /**
  * Attack handlers for goombas.
  */
-static u8 sGoombaAttackHandlers[][6] = {
+u8 sGoombaAttackHandlers[][6] = {
     // regular and tiny
     {
         /* ATTACK_PUNCH:                 */ ATTACK_HANDLER_KNOCKBACK,
@@ -126,7 +126,7 @@ void bhv_goomba_init(void) {
 /**
  * Enter the jump action and set initial y velocity.
  */
-static void goomba_begin_jump(void) {
+void goomba_begin_jump(void) {
     cur_obj_play_sound_2(SOUND_OBJ_GOOMBA_ALERT);
     o->oAction = GOOMBA_ACT_JUMP;
     o->oForwardVel = 0.0f;
@@ -138,7 +138,7 @@ static void goomba_begin_jump(void) {
  * this goomba died. This prevents it from spawning again when mario leaves and
  * comes back.
  */
-static void mark_goomba_as_dead(void) {
+void mark_goomba_as_dead(void) {
     if (o->parentObj != o) {
         set_object_respawn_info_bits(o->parentObj,
                                      (o->oBehParams2ndByte & GOOMBA_BP_TRIPLET_FLAG_MASK) >> 2);
@@ -152,7 +152,7 @@ static void mark_goomba_as_dead(void) {
  * Walk around randomly occasionally jumping. If mario comes within range,
  * chase him.
  */
-static void goomba_act_walk(void) {
+void goomba_act_walk(void) {
     treat_far_home_as_mario(1000.0f);
 
     obj_forward_vel_approach(o->oGoombaRelativeSpeed * o->oGoombaScale, 0.4f);
@@ -217,7 +217,7 @@ static void goomba_act_walk(void) {
  * This action occurs when either the goomba attacks mario normally, or mario
  * attacks a huge goomba with an attack that doesn't kill it.
  */
-static void goomba_act_attacked_mario(void) {
+void goomba_act_attacked_mario(void) {
     if (o->oGoombaSize == GOOMBA_SIZE_TINY) {
         mark_goomba_as_dead();
         o->oNumLootCoins = 0;
@@ -234,7 +234,7 @@ static void goomba_act_attacked_mario(void) {
 /**
  * Move until landing, and rotate toward target yaw.
  */
-static void goomba_act_jump(void) {
+void goomba_act_jump(void) {
     obj_resolve_object_collisions(NULL);
 
     //! If we move outside the goomba's drawing radius the frame it enters the
