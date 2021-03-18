@@ -6,6 +6,10 @@ Lights1 laser_ring_spawner_Top_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
+Lights1 laser_ring_spawner_spike_lights = gdSPDefLights1(
+	0x6B, 0x6B, 0x6B,
+	0xD6, 0xD6, 0xD6, 0x28, 0x28, 0x28);
+
 Gfx laser_ring_spawner_metal_plates_ci8_aligner[] = {gsSPEndDisplayList()};
 u8 laser_ring_spawner_metal_plates_ci8[] = {
 	0x00, 0x01, 0x02, 0x03, 0x01, 0x01, 0x02, 0x04, 
@@ -540,6 +544,76 @@ Gfx laser_ring_spawner_top_mesh_layer_1_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
+Vtx laser_ring_spawner_switch_option_spikes_mesh_layer_1_vtx_0[45] = {
+	{{{7, 47, -13},0, {-16, 1008},{0xC3, 0x23, 0x96, 0xFF}}},
+	{{{-14, 47, 0},0, {-16, 1008},{0xC3, 0x23, 0x96, 0xFF}}},
+	{{{0, 72, 0},0, {-16, 1008},{0xC3, 0x23, 0x96, 0xFF}}},
+	{{{7, 47, 12},0, {-16, 1008},{0x7A, 0x23, 0x0, 0xFF}}},
+	{{{7, 47, -13},0, {-16, 1008},{0x7A, 0x23, 0x0, 0xFF}}},
+	{{{0, 72, 0},0, {-16, 1008},{0x7A, 0x23, 0x0, 0xFF}}},
+	{{{-14, 47, 0},0, {-16, 1008},{0xC3, 0x23, 0x6A, 0xFF}}},
+	{{{7, 47, 12},0, {-16, 1008},{0xC3, 0x23, 0x6A, 0xFF}}},
+	{{{0, 72, 0},0, {-16, 1008},{0xC3, 0x23, 0x6A, 0xFF}}},
+	{{{7, 24, -37},0, {-16, 1008},{0xC3, 0xCE, 0x9C, 0xFF}}},
+	{{{-14, 33, -28},0, {-16, 1008},{0xC3, 0xCE, 0x9C, 0xFF}}},
+	{{{0, 51, -46},0, {-16, 1008},{0xC3, 0xCE, 0x9C, 0xFF}}},
+	{{{7, 42, -19},0, {-16, 1008},{0x7A, 0x19, 0xE7, 0xFF}}},
+	{{{7, 24, -37},0, {-16, 1008},{0x7A, 0x19, 0xE7, 0xFF}}},
+	{{{0, 51, -46},0, {-16, 1008},{0x7A, 0x19, 0xE7, 0xFF}}},
+	{{{-14, 33, -28},0, {-16, 1008},{0xC3, 0x64, 0x32, 0xFF}}},
+	{{{7, 42, -19},0, {-16, 1008},{0xC3, 0x64, 0x32, 0xFF}}},
+	{{{0, 51, -46},0, {-16, 1008},{0xC3, 0x64, 0x32, 0xFF}}},
+	{{{-7, 24, 37},0, {-16, 1008},{0x3D, 0xCE, 0x64, 0xFF}}},
+	{{{14, 33, 28},0, {-16, 1008},{0x3D, 0xCE, 0x64, 0xFF}}},
+	{{{0, 51, 46},0, {-16, 1008},{0x3D, 0xCE, 0x64, 0xFF}}},
+	{{{-7, 42, 19},0, {-16, 1008},{0x86, 0x19, 0x19, 0xFF}}},
+	{{{-7, 24, 37},0, {-16, 1008},{0x86, 0x19, 0x19, 0xFF}}},
+	{{{0, 51, 46},0, {-16, 1008},{0x86, 0x19, 0x19, 0xFF}}},
+	{{{14, 33, 28},0, {-16, 1008},{0x3D, 0x64, 0xCE, 0xFF}}},
+	{{{-7, 42, 19},0, {-16, 1008},{0x3D, 0x64, 0xCE, 0xFF}}},
+	{{{0, 51, 46},0, {-16, 1008},{0x3D, 0x64, 0xCE, 0xFF}}},
+	{{{-37, 24, -7},0, {-16, 1008},{0x9C, 0xCE, 0x3D, 0xFF}}},
+	{{{-28, 33, 14},0, {-16, 1008},{0x9C, 0xCE, 0x3D, 0xFF}}},
+	{{{-46, 51, 0},0, {-16, 1008},{0x9C, 0xCE, 0x3D, 0xFF}}},
+	{{{-19, 42, -7},0, {-16, 1008},{0xE7, 0x19, 0x86, 0xFF}}},
+	{{{-37, 24, -7},0, {-16, 1008},{0xE7, 0x19, 0x86, 0xFF}}},
+	{{{-46, 51, 0},0, {-16, 1008},{0xE7, 0x19, 0x86, 0xFF}}},
+	{{{-28, 33, 14},0, {-16, 1008},{0x32, 0x64, 0x3D, 0xFF}}},
+	{{{-19, 42, -7},0, {-16, 1008},{0x32, 0x64, 0x3D, 0xFF}}},
+	{{{-46, 51, 0},0, {-16, 1008},{0x32, 0x64, 0x3D, 0xFF}}},
+	{{{37, 24, 7},0, {-16, 1008},{0x64, 0xCE, 0xC3, 0xFF}}},
+	{{{28, 33, -14},0, {-16, 1008},{0x64, 0xCE, 0xC3, 0xFF}}},
+	{{{46, 51, 0},0, {-16, 1008},{0x64, 0xCE, 0xC3, 0xFF}}},
+	{{{19, 42, 7},0, {-16, 1008},{0x19, 0x19, 0x7A, 0xFF}}},
+	{{{37, 24, 7},0, {-16, 1008},{0x19, 0x19, 0x7A, 0xFF}}},
+	{{{46, 51, 0},0, {-16, 1008},{0x19, 0x19, 0x7A, 0xFF}}},
+	{{{28, 33, -14},0, {-16, 1008},{0xCE, 0x64, 0xC3, 0xFF}}},
+	{{{19, 42, 7},0, {-16, 1008},{0xCE, 0x64, 0xC3, 0xFF}}},
+	{{{46, 51, 0},0, {-16, 1008},{0xCE, 0x64, 0xC3, 0xFF}}},
+};
+
+Gfx laser_ring_spawner_switch_option_spikes_mesh_layer_1_tri_0[] = {
+	gsSPVertex(laser_ring_spawner_switch_option_spikes_mesh_layer_1_vtx_0 + 0, 15, 0),
+	gsSP1Triangle(0, 1, 2, 0),
+	gsSP1Triangle(3, 4, 5, 0),
+	gsSP1Triangle(6, 7, 8, 0),
+	gsSP1Triangle(9, 10, 11, 0),
+	gsSP1Triangle(12, 13, 14, 0),
+	gsSPVertex(laser_ring_spawner_switch_option_spikes_mesh_layer_1_vtx_0 + 15, 15, 0),
+	gsSP1Triangle(0, 1, 2, 0),
+	gsSP1Triangle(3, 4, 5, 0),
+	gsSP1Triangle(6, 7, 8, 0),
+	gsSP1Triangle(9, 10, 11, 0),
+	gsSP1Triangle(12, 13, 14, 0),
+	gsSPVertex(laser_ring_spawner_switch_option_spikes_mesh_layer_1_vtx_0 + 30, 15, 0),
+	gsSP1Triangle(0, 1, 2, 0),
+	gsSP1Triangle(3, 4, 5, 0),
+	gsSP1Triangle(6, 7, 8, 0),
+	gsSP1Triangle(9, 10, 11, 0),
+	gsSP1Triangle(12, 13, 14, 0),
+	gsSPEndDisplayList(),
+};
+
 
 Gfx mat_laser_ring_spawner_Base[] = {
 	gsDPPipeSync(),
@@ -607,6 +681,14 @@ Gfx mat_revert_laser_ring_spawner_Top[] = {
 	gsSPEndDisplayList(),
 };
 
+Gfx mat_laser_ring_spawner_spike[] = {
+	gsDPPipeSync(),
+	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+	gsSPTexture(65535, 65535, 0, 0, 1),
+	gsSPSetLights1(laser_ring_spawner_spike_lights),
+	gsSPEndDisplayList(),
+};
+
 Gfx laser_ring_spawner_base_mesh_layer_1[] = {
 	gsSPDisplayList(mat_laser_ring_spawner_Base),
 	gsSPDisplayList(laser_ring_spawner_base_mesh_layer_1_tri_0),
@@ -620,6 +702,12 @@ Gfx laser_ring_spawner_top_mesh_layer_1[] = {
 	gsSPDisplayList(mat_laser_ring_spawner_Top),
 	gsSPDisplayList(laser_ring_spawner_top_mesh_layer_1_tri_0),
 	gsSPDisplayList(mat_revert_laser_ring_spawner_Top),
+	gsSPEndDisplayList(),
+};
+
+Gfx laser_ring_spawner_switch_option_spikes_mesh_layer_1[] = {
+	gsSPDisplayList(mat_laser_ring_spawner_spike),
+	gsSPDisplayList(laser_ring_spawner_switch_option_spikes_mesh_layer_1_tri_0),
 	gsSPEndDisplayList(),
 };
 

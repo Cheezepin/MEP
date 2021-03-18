@@ -19,11 +19,16 @@ void bhv_strollin_stu_init(void) {
             o->parentObj = 0;
         }
         o->prevObj->parentObj = o;
-        o->prevObj->oPosX = -150.0f*sins(o->oMoveAngleYaw) + o->oPosX;
-        o->prevObj->oPosZ = -150.0f*coss(o->oMoveAngleYaw) + o->oPosZ;
+        if(o->oBehParams & 0x01000000) {
+            o->prevObj->oPosY = o->oPosY + 70.0f;
+            o->prevObj->oBehParams |= 0x01000001;
+        } else {
+            o->prevObj->oPosX = -150.0f*sins(o->oMoveAngleYaw) + o->oPosX;
+            o->prevObj->oPosZ = -150.0f*coss(o->oMoveAngleYaw) + o->oPosZ;
+            o->prevObj->oBehParams |= 0x00000001;
+        }
         o->prevObj->oMoveAngleYaw = o->oMoveAngleYaw;
         o->prevObj->oBehParams2ndByte = o->oBehParams2ndByte - 1;
-        o->prevObj->oBehParams |= 0x00000001;
     }
 
     obj_set_hitbox(o, &sStrollinStuHitbox);
@@ -82,33 +87,56 @@ void bhv_strollin_stu_update(void) {
             o->oAnimState = TRUE;
         }
     } else {
-        f32 distToParent = lateral_dist_between_objects(o, o->parentObj);
-        obj_update_standard_actions(1.0f);
-        //cur_obj_scale(1.0f);
-        obj_update_blinking(&o->oGoombaBlinkTimer, 30, 50, 5);
-        cur_obj_update_floor_and_walls();
+        if(o->oBehParams & 0x01000000) {
+            obj_update_standard_actions(1.0f);
+            obj_update_blinking(&o->oGoombaBlinkTimer, 30, 50, 5);
 
-        if ((animSpeed = o->oForwardVel * 0.4f) < 1.0f) {
-            animSpeed = 1.0f;
-        }
+            if ((animSpeed = o->oForwardVel * 0.4f) < 1.0f) {
+                animSpeed = 1.0f;
+            }
 
-        cur_obj_init_animation_with_accel_and_sound(0, animSpeed);
+            cur_obj_init_animation_with_accel_and_sound(0, animSpeed);
 
-        o->oForwardVel = o->parentObj->oForwardVel;
-        if(distToParent > 154.0f) {
-            o->oForwardVel += 4.0f;
-        }
-        if(distToParent < 146.0f) {
-            o->oForwardVel -= 4.0f;
-        }
-        cur_obj_rotate_yaw_toward(obj_angle_to_object(o, o->parentObj), 0x400);
-        obj_handle_attacks(&sStrollinStuHitbox, GOOMBA_ACT_ATTACKED_MARIO,
-                                sGoombaAttackHandlers[0]);
+            o->oForwardVel = o->parentObj->oForwardVel;
+            o->oPosX = o->parentObj->oPosX;
+            o->oPosY = o->parentObj->oPosY + 70.0f;
+            o->oPosZ = o->parentObj->oPosZ;
+            o->oMoveAngleYaw = o->parentObj->oMoveAngleYaw;
+            obj_handle_attacks(&sStrollinStuHitbox, GOOMBA_ACT_ATTACKED_MARIO,
+                                    sGoombaAttackHandlers[0]);
 
-        cur_obj_move_standard(-78);
+            if(o->parentObj->activeFlags == ACTIVE_FLAG_DEACTIVATED || o->parentObj->behavior != segmented_to_virtual(bhvStrollinStu)) {
+                o->parentObj = 0;
+            }
+        } else {
+            f32 distToParent = lateral_dist_between_objects(o, o->parentObj);
+            obj_update_standard_actions(1.0f);
+            //cur_obj_scale(1.0f);
+            obj_update_blinking(&o->oGoombaBlinkTimer, 30, 50, 5);
+            cur_obj_update_floor_and_walls();
 
-        if(o->parentObj->activeFlags == ACTIVE_FLAG_DEACTIVATED || o->parentObj->behavior != segmented_to_virtual(bhvStrollinStu)) {
-            o->parentObj = 0;
+            if ((animSpeed = o->oForwardVel * 0.4f) < 1.0f) {
+                animSpeed = 1.0f;
+            }
+
+            cur_obj_init_animation_with_accel_and_sound(0, animSpeed);
+
+            o->oForwardVel = o->parentObj->oForwardVel;
+            if(distToParent > 154.0f) {
+                o->oForwardVel += 4.0f;
+            }
+            if(distToParent < 146.0f) {
+                o->oForwardVel -= 4.0f;
+            }
+            cur_obj_rotate_yaw_toward(obj_angle_to_object(o, o->parentObj), 0x400);
+            obj_handle_attacks(&sStrollinStuHitbox, GOOMBA_ACT_ATTACKED_MARIO,
+                                    sGoombaAttackHandlers[0]);
+
+            cur_obj_move_standard(-78);
+
+            if(o->parentObj->activeFlags == ACTIVE_FLAG_DEACTIVATED || o->parentObj->behavior != segmented_to_virtual(bhvStrollinStu)) {
+                o->parentObj = 0;
+            }
         }
     }
 }

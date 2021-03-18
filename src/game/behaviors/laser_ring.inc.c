@@ -10,9 +10,40 @@
 #define ZH_LASER_RING_SPAWNER_COOLDOWN_TIME  20
 #define ZH_LASER_RING_SPAWNER_DETECT_RADIUS  (ZH_LASER_RING_BASE_RADIUS * ZH_LASER_RING_GROWTH_RATE * ZH_LASER_RING_GROWTH_TIME)
 
+static struct ObjectHitbox sLaserRingHitbox = {
+    /* interactType:      */ INTERACT_BOUNCE_TOP,
+    /* downOffset:        */ 0,
+    /* damageOrCoinValue: */ 1,
+    /* health:            */ 0,
+    /* numLootCoins:      */ 1,
+    /* radius:            */ 100,
+    /* height:            */ 50,
+    /* hurtboxRadius:     */ 100,
+    /* hurtboxHeight:     */ 50,
+};
+
+static struct ObjectHitbox sSpikedLaserRingHitbox = {
+    /* interactType:      */ INTERACT_DAMAGE,
+    /* downOffset:        */ 0,
+    /* damageOrCoinValue: */ 1,
+    /* health:            */ 0,
+    /* numLootCoins:      */ 1,
+    /* radius:            */ 100,
+    /* height:            */ 50,
+    /* hurtboxRadius:     */ 100,
+    /* hurtboxHeight:     */ 50,
+};
+
 void bhv_laser_ring_spawner_init(void)
 {
     o->oAction = ZH_LASER_RING_SPAWNER_ACT_CHARGING;
+    o->oAnimState = ((o->oBehParams2ndByte & 0x1) ^ 0x1);
+    if(o->oAnimState == 1) {
+        obj_set_hitbox(o, &sSpikedLaserRingHitbox);
+    } else {
+        obj_set_hitbox(o, &sLaserRingHitbox);
+        o->oInteractionSubtype |= INT_SUBTYPE_TWIRL_BOUNCE;
+    }
 }
 
 static void laser_ring_spawner_act_idle(f32 xzDist)
@@ -67,7 +98,7 @@ void bhv_laser_ring_spawner_loop(void)
             laser_ring_spawner_act_cooldown();
             break;
     }
-    cur_obj_push_mario_away_from_cylinder(100.0f, 50.0f);
+    o->oInteractStatus = 0;
 }
 
 void bhv_laser_ring_init(void)
@@ -85,7 +116,7 @@ void bhv_laser_ring_loop(void)
     f32 marioYMin = gMarioState->pos[1];
     f32 marioYMax = gMarioState->pos[1] + 160.0f;
     f32 outerRadius = o->oTimer * ZH_LASER_RING_GROWTH_RATE * ZH_LASER_RING_BASE_RADIUS;
-    f32 innerRadius = outerRadius - 30;
+    f32 innerRadius = outerRadius - 50;
 
     // Check if mario is in contact with the laser ring
     if (marioXZDist >= innerRadius && marioXZDist <= outerRadius && o->oPosY >= marioYMin && o->oPosY <= marioYMax)
