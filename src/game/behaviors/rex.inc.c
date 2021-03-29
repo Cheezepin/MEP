@@ -33,6 +33,8 @@ void bhv_rex_init(void) {
     //o->oGoombaScale = 1.0f;
     //o->oGoombaSize = o->oBehParams2ndByte & GOOMBA_BP_SIZE_MASK;
 
+    o->oGraphYOffset = -61.0f;
+
     o->oGravity = -8.0f / 3.0f; //* o->oGoombaScale
     obj_set_hitbox(o, &sRexHitbox);
     //cur_obj_scale(o->oGoombaScale);

@@ -1,7 +1,12 @@
 extern const GeoLayout spike_ball_geo[];
-extern Vtx spike_ball_Spike_Ball_mesh_vtx_0[4];
-extern Gfx spike_ball_Spike_Ball_mesh_tri_0[];
-
-extern Gfx spike_ball_Spike_Ball_mesh[];
+extern Lights1 spike_ball_ball_lights;
+extern Lights1 spike_ball_spike_lights;
+extern Vtx spike_ball_ball_mesh_layer_1_vtx_0[40];
+extern Gfx spike_ball_ball_mesh_layer_1_tri_0[];
+extern Vtx spike_ball_ball_mesh_layer_1_vtx_1[60];
+extern Gfx spike_ball_ball_mesh_layer_1_tri_1[];
+extern Gfx mat_spike_ball_ball[];
+extern Gfx mat_spike_ball_spike[];
+extern Gfx mat_revert_spike_ball_spike[];
+extern Gfx spike_ball_ball_mesh_layer_1[];
 extern Gfx spike_ball_material_revert_render_settings[];
-
