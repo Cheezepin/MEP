@@ -6280,7 +6280,7 @@ const BehaviorScript bhvSpike[] = {
 const BehaviorScript bhvSpikeBall[] = {
     BEGIN(OBJ_LIST_GENACTOR),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
-    BILLBOARD(),
+    LOAD_ANIMATIONS(oAnimations, spike_ball_anims),
     SET_HOME(),
     CALL_NATIVE(bhv_spike_ball_init),
     BEGIN_LOOP(),

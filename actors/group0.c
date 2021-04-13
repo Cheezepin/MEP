@@ -58,3 +58,5 @@
 #include "spike/anims/data.inc.c"
 #include "spike/anims/table.inc.c"
 #include "spike_ball/model.inc.c"
+#include "spike_ball/anims/data.inc.c"
+#include "spike_ball/anims/table.inc.c"

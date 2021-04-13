@@ -384,4 +384,6 @@ extern const Gfx white_particle_small_unused_dl[];
 #include "spike/anim_header.h"
 #include "spike_ball/geo_header.h"
 
+
+#include "spike_ball/anim_header.h"
 #endif
