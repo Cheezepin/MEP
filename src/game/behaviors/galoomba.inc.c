@@ -128,7 +128,7 @@ static void galoomba_act_jump(void) {
 }
 
 static void galoomba_act_flipped_init(void) {
-    o->oGravity = 2.5f;
+    o->oGravity = 2.0f;
     o->oFriction = 0.875f;
     o->oBuoyancy = 1.4f;
     o->oInteractType = INTERACT_GRABBABLE;
@@ -177,7 +177,7 @@ void bhv_galoomba_update(void) {
        o->header.gfx.node.flags &= ~GRAPH_RENDER_INVISIBLE;
        if (o->oHeldState != HELD_FREE) {
         cur_obj_get_dropped();
-        o->oForwardVel = 20.0f;
+        o->oForwardVel = 30.0f;
        }
        galoomba_box_act_move();
     }
